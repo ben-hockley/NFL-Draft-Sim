@@ -1,0 +1,55 @@
+body{
+    height:100vh;
+    width:100%;
+    margin:0;
+    background-color:#D50A0A;
+}
+#title{
+    height:10vh;
+    text-align: center;
+    width:100%;
+    background-color: #013369;
+    font-family: Arial, Helvetica, sans-serif;
+    color:white;
+}
+#team-selector{
+    width:80%;
+    margin-left:10%;
+    margin-right:10%;
+    margin-top:5vh;
+    margin-bottom:5vh;
+    background-color:white;
+    height:50vh;
+    border-radius:5%;
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.teamButton{
+    width:8vw;
+    height:10%;
+    background-color: lightgray;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-top:1vw;
+    margin-bottom: 1vw;
+    display:flex;
+    justify-content: space-between;
+}
+.logo{
+    height:100%
+}
+.shortName{
+    font-weight: bold;
+    margin:auto;
+}
+#subtitle{
+    width:100%;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color:white;
+}
+.teamButton:hover{
+    background-color: #D50A0A;
+    color:white;
+}

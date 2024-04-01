@@ -39,9 +39,9 @@ body{
     display:flex;
     justify-content: space-evenly;
 }
-.yearButton{
+.teamButton{
     height:100%;
     background-color: white;
     color:#013369;
-    width:10vw;
+    width:10%;
 }
