@@ -11,6 +11,7 @@ body{
     background-color: #013369;
     font-family: Arial, Helvetica, sans-serif;
     color:white;
+    margin-top:0;
 }
 #team-selector{
     width:80%;
@@ -52,4 +53,20 @@ body{
 .teamButton:hover{
     background-color: #D50A0A;
     color:white;
+}
+#continueContainer{
+    height:10vh;
+    margin-top:10vh;
+    margin-bottom:10vh;
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+#continue{
+    background-color: green;
+    height:100%;
+    color:white;
+}
+#activeTeams{
+    display: none;
 }

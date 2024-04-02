@@ -1,5 +1,6 @@
 import os
 from flask import Flask, redirect, request, render_template, url_for
+import json
 
 app = Flask(__name__)
 
@@ -12,6 +13,12 @@ def loadHome():
 @app.route('/2024Draft')
 def load2024():
     return render_template('2024Draft.html')
+
+@app.route('/2024Draft/simulator', methods = ['POST'])
+def getActiveTeams():
+    activeTeams = request.form.get('activeTeams')
+    activeTeams = activeTeams.split(',') #turn back into list
+    return render_template('2024DraftRoom.html', activeTeams=activeTeams)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -41,6 +41,7 @@ function add(team){
         document.getElementById(team).style.backgroundColor = 'red';
         ActiveTeams.push(team);
     }
+    document.getElementById('activeTeams').setAttribute('value',ActiveTeams)
 }
 
 function addARI(){add('ARI')}

@@ -42,6 +42,12 @@
             <button id="PIT" class="teamButton"><p class="shortName">PIT</p><img class='logo' src='/static/img/PIT.webp'></button>
             <button id="TEN" class="teamButton"><p class="shortName">TEN</p><img class='logo' src='/static/img/TEN.webp'></button>
         </div>
+        <div id="continueContainer">
+            <form method="post" action="/2024Draft/simulator">
+                <input type="text" id="activeTeams" name="activeTeams" value="default">
+                <button type="submit">Continue</button>
+            </form>
+        </div>
         <script src="/static/JS/mockDraft.js"></script>
     </body>
 </html>
