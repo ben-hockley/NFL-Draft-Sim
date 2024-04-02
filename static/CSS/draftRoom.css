@@ -1,3 +1,60 @@
 #activeTeams,#draftOrder{
     display:none;
 }
+body{
+    margin:0;
+    height:100vh;
+}
+#banner{
+    background-color: #013369;
+    color:#D50A0A;
+    height:15%;
+    width:100%;
+    border:2px solid #D50A0A;
+    box-sizing: border-box;
+    text-align: center;
+}
+#title{
+    font-family: Arial, Helvetica, sans-serif;
+}
+#mainContainer{
+    display:flex;
+    width:100%;
+    height:85%;
+}
+#Picks,#Prospects{
+    width:50%;
+    height:100%;
+    box-sizing: border-box;
+    border:1px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left:2%;
+    margin-right:2%;
+    overflow:auto;
+}
+.pick,.prospect{
+    height:20%;
+    box-sizing: border-box;
+    width:100%;
+    border:1px solid black;
+    margin-top:2%;
+    margin-bottom:2%;
+    display:flex;
+}
+
+.pickNo{
+    width:20%;
+    height:min-content;
+    border:1px solid black;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: xx-large;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.team{
+    height:100%;
+    width:20%;
+    box-sizing: border-box;
+    border:1px solid black;
+}
