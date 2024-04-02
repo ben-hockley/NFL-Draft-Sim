@@ -1,4 +1,4 @@
-#activeTeams,#draftOrder{
+.hide{
     display:none;
 }
 body{
@@ -42,7 +42,7 @@ body{
     display:flex;
 }
 
-.pickNo{
+.pickNo,.prospectNo{
     width:20%;
     height:min-content;
     border:1px solid black;
@@ -52,7 +52,27 @@ body{
     margin-top:auto;
     margin-bottom:auto;
 }
-.team{
+.name{
+    width:40%;
+    height:min-content;
+    border:1px solid black;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: large;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.position{
+    width:20%;
+    height:min-content;
+    border:1px solid black;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: xx-large;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.team,.college{
     height:100%;
     width:20%;
     box-sizing: border-box;

@@ -24,7 +24,20 @@ def getActiveTeams():
     cur = conn.cursor()
     cur.execute('SELECT Team FROM draftOrder')
     draftOrder = cur.fetchall()
-    return render_template('2024DraftRoom.html', activeTeams=activeTeams, draftOrder=draftOrder)
+    conn.close()
+
+    conn = sqlite3.connect('2024Draft.db')
+    cur = conn.cursor()
+    cur.execute('SELECT Name FROM draftProspects')
+    prospectNames = cur.fetchall()
+    cur.execute('SELECT College FROM draftProspects')
+    prospectColleges = cur.fetchall()
+    cur.execute('SELECT Position FROM draftProspects')
+    prospectPositions = cur.fetchall()
+    conn.close()
+
+    return render_template('2024DraftRoom.html', activeTeams=activeTeams, draftOrder=draftOrder,
+    prospectNames=prospectNames, prospectColleges=prospectColleges, prospectPositions=prospectPositions)
 
 if __name__ == "__main__":
     app.run(debug=True)
