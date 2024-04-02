@@ -64,7 +64,7 @@ for (i=0;i<prospectNames.length;i++){
 
     prospectName = document.createElement('div');
     prospectName.className = 'name';
-    prospectName.innerHTML = prospectNames[i];
+    prospectName.innerHTML = prospectNames[i] + " " + prospectColleges[i];
 
     prospectPosition = document.createElement('div');
     prospectPosition.className = 'position';
