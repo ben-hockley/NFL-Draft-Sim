@@ -17,7 +17,6 @@ def load2024():
 @app.route('/2024Draft/simulator', methods = ['POST'])
 def getActiveTeams():
     activeTeams = request.form.get('activeTeams')
-    activeTeams = activeTeams.split(',') #turn back into list
     return render_template('2024DraftRoom.html', activeTeams=activeTeams)
 
 if __name__ == "__main__":
