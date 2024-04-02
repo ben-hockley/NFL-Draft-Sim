@@ -78,3 +78,20 @@ body{
     box-sizing: border-box;
     border:1px solid black;
 }
+.subtitle{
+    text-align: center;
+    background-color: #013369;
+    color:#D50A0A;
+    width:100%;
+    box-sizing: border-box;
+    border:2px solid white;
+}
+.prospect:hover{
+    background-color: #013369;
+    color:#D50A0A;
+}
+#start{
+    position:fixed;
+    right:5%;
+    top:5%;
+}

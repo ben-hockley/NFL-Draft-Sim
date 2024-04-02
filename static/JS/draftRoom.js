@@ -77,3 +77,38 @@ for (i=0;i<prospectNames.length;i++){
 
     document.getElementById('Prospects').appendChild(prospect);
 }
+
+document.getElementById('start').addEventListener("click",startDraft)
+
+function startDraft(){
+    for (i=0;i<prospectNames.length;i++){
+        document.getElementsByClassName('prospect')[i].addEventListener("click",makePick);
+        document.getElementsByClassName('prospect')[i].id = i+1; //id = prospect ranking
+    }
+    document.getElementById('start').style.display = 'none';
+}
+
+
+var activePick = 0; //zero indexed (activePick 0 is first overall pick)
+function makePick(){
+    console.log(this.id);
+    console.log(this.childNodes[2].innerHTML);
+    console.log(this.childNodes[3].innerHTML);
+
+    prospectName = this.childNodes[2].innerHTML;
+    prospectPos = this.childNodes[3].innerHTML;
+
+    pickName = document.createElement('div');
+    pickName.className = 'name'
+    pickName.innerHTML = prospectName;
+
+    pickPos = document.createElement('div');
+    pickPos.className = 'position';
+    pickPos.innerHTML = prospectPos;
+
+    document.getElementsByClassName('pick')[activePick].appendChild(pickName);
+    document.getElementsByClassName('pick')[activePick].appendChild(pickPos);
+
+    activePick += 1;
+    this.style.display = 'none';
+}
