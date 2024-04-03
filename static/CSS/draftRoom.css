@@ -129,3 +129,14 @@ body{
 .team:hover{
     background-color: #D50A0A;
 }
+
+#endDraftButton{
+    width:50%;
+    height:10%;
+    margin-left: 25%;
+    margin-left: 25%;
+    background-color: #013369;
+    color: #D50A0A;
+    border:2px solid #D50A0A;
+    box-sizing: border-box;
+}

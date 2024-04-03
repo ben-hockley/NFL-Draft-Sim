@@ -7,6 +7,8 @@ prospectPositions = document.getElementById('prospectPositions').innerHTML;
 
 console.log(teamList);
 
+draftPicks = [];
+
 
 // form arrays used to populate html file.
 teamList = teamList.split(",");
@@ -115,6 +117,8 @@ function makePick(){
     pickName.className = 'name';
     pickName.innerHTML = prospectName;
 
+    draftPicks.push(prospectName)
+
     pickPos = document.createElement('div');
     pickPos.className = 'position';
     pickPos.innerHTML = prospectPos;
@@ -125,6 +129,7 @@ function makePick(){
     document.getElementsByClassName('pick')[activePick].appendChild(pickPos);
 
     activePick += 1;
+    checkForEnd(activePick);
     this.classList.remove('undrafted');
     this.classList.add('drafted');
     this.style.display = 'none';
@@ -162,6 +167,8 @@ function makeCpuPick(){
     pickName.className = 'name';
     pickName.innerHTML = prospectName;
 
+    draftPicks.push(prospectName);
+
     pickPos = document.createElement('div');
     pickPos.className = 'position';
     pickPos.innerHTML = prospectPos;
@@ -171,6 +178,7 @@ function makeCpuPick(){
     document.getElementsByClassName('pick')[activePick].appendChild(pickPos);
 
     activePick += 1;
+    checkForEnd(activePick);
     cpuPick.classList.remove('undrafted');
     cpuPick.classList.add('drafted');
     cpuPick.style.display = 'none';
@@ -219,4 +227,24 @@ function tradePick(){
         tradingAway.setAttribute('src','/static/img/NFL/' + document.getElementById('newOwner').value + '.webp');
         document.getElementById('popup').style.display = 'none';
     })
+}
+
+function checkForEnd(activePick){
+    if (activePick == 32){
+        endOfDraft();
+    }
+}
+
+function endOfDraft(){
+    endDraftButton = document.createElement('button');
+    endDraftButton.innerHTML = 'End Draft';
+    endDraftButton.id = 'endDraftButton';
+    endDraftButton.addEventListener("click",getDraftResults)
+
+    document.getElementById('Picks').appendChild(endDraftButton);
+}
+
+function getDraftResults(){
+    alert(draftPicks);
+    //window.location.href = "/2024Draft/DraftResults";
 }

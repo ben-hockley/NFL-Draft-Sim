@@ -39,5 +39,8 @@ def getActiveTeams():
     return render_template('2024DraftRoom.html', activeTeams=activeTeams, draftOrder=draftOrder,
     prospectNames=prospectNames, prospectColleges=prospectColleges, prospectPositions=prospectPositions)
 
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)
