@@ -74,6 +74,8 @@ for (i=0;i<prospectNames.length;i++){
     prospect.appendChild(collegeImage);
     prospect.appendChild(prospectName);
     prospect.appendChild(prospectPosition);
+    prospect.classList.add(prospectPositions[i]); //add position class to prospect for filters.
+    prospect.classList.add('undrafted');
 
     document.getElementById('Prospects').appendChild(prospect);
 }
@@ -99,7 +101,7 @@ function makePick(){
     prospectPos = this.childNodes[3].innerHTML;
 
     pickName = document.createElement('div');
-    pickName.className = 'name'
+    pickName.className = 'name';
     pickName.innerHTML = prospectName;
 
     pickPos = document.createElement('div');
@@ -110,5 +112,40 @@ function makePick(){
     document.getElementsByClassName('pick')[activePick].appendChild(pickPos);
 
     activePick += 1;
+    this.classList.remove('undrafted');
+    this.classList.add('drafted');
     this.style.display = 'none';
+}
+
+function autoPick(){
+    if (teamList.includes(draftOrder[activePick])){
+        console.log('user pick');
+    } else {
+        console.log('cpu pick');
+    }
+}
+
+//prospect filter
+document.getElementById('submitFilter').addEventListener('click',filterByPosition);
+
+function filterByPosition(){
+    positionFiltered = document.getElementById('positions').value;
+    console.log(positionFiltered);
+
+    if (positionFiltered == 'Any'){
+        //show all undrafted prospects
+        for (i=0;i<(50-activePick);i++){
+            document.getElementsByClassName('undrafted')[i].style.display = 'flex';
+        }
+    } else {
+        for (i=0;i<(50-activePick);i++){
+            if (document.getElementsByClassName('undrafted')[i].classList.contains(positionFiltered)){
+                document.getElementsByClassName('undrafted')[i].style.display = 'flex';
+                //show matching prospects
+            } else {
+                document.getElementsByClassName('undrafted')[i].style.display = 'none';
+                //hide none matching prospects
+            }
+        }
+    }
 }

@@ -94,3 +94,14 @@ body{
     right:5%;
     top:5%;
 }
+#filter{
+    display:flex;
+    justify-content: space-evenly;
+    height:min-content;
+    width:100%;
+    box-sizing: border-box;
+    border:1px solid black;
+}
+.drafted{ /*Hide drafted prospects */
+    display: none;
+}

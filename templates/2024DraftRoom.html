@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" href="/static/CSS/draftRoom.css">
+    <title>2024 Draft Sim</title>
 </head>
 <!--Hidden elements-->
     <p id="activeTeams" class="hide">{{activeTeams}}</p>
@@ -18,7 +19,26 @@
         </div>
         <div id="Prospects">
             <div class="subtitle">
-                <h2>Prospects</h2>
+                <h2>Best Remaining Prospects</h2>
+            </div>
+            <div id="filter">
+                <select name="positions" id="positions">
+                    <option value="Any">Any</option>
+                    <option value="QB">QB</option>
+                    <option value="RB">RB</option>
+                    <option value="WR">WR</option>
+                    <option value="TE">TE</option>
+                    <option value="OT">OT</option>
+                    <option value="IOL">IOL</option>
+                    <option value="C">C</option>
+                    <option value="DT">DT</option>
+                    <option value="DE">DE</option>
+                    <option value="ILB">ILB</option>
+                    <option value="OLB">OLB</option>
+                    <option value="CB">CB</option>
+                    <option value="S">S</option>
+                </select>
+                <button id="submitFilter" name="submitFilter">submit</button>
             </div>
         </div>
     </div>
