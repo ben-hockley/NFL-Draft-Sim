@@ -76,3 +76,24 @@ function addNE(){add('NE')}
 function addNYJ(){add('NYJ')}
 function addPIT(){add('PIT')}
 function addTEN(){add('TEN')}
+
+document.getElementById('selectAll').addEventListener("click",selectAll)
+document.getElementById('deselectAll').addEventListener("click",deselectAll)
+
+function selectAll(){
+    console.log('select all')
+    for (i=0;i<32;i++){
+        document.getElementsByClassName('teamButton')[i].style.backgroundColor = 'red';
+        ActiveTeams.push(document.getElementsByClassName('teamButton')[i].id);
+    }
+    document.getElementById('activeTeams').setAttribute('value',ActiveTeams);
+}
+
+function deselectAll(){
+    console.log('deselect all')
+    ActiveTeams = [];
+    for (i=0;i<32;i++){
+        document.getElementsByClassName('teamButton')[i].style.backgroundColor = 'lightgray';
+    }
+    document.getElementById('activeTeams').setAttribute('value',ActiveTeams);
+}

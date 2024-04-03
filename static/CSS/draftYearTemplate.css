@@ -19,6 +19,11 @@ body{
     box-sizing: border-box;
     width:10%;
 }
+#buttons{
+    width:100%;
+    height:min-content;
+    display:flex;
+}
 #team-selector{
     width:80%;
     margin-left:10%;
