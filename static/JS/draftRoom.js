@@ -120,11 +120,11 @@ function makePick(){
 }
 
 function autoPick(){
-
     console.log(draftOrder[activePick]);
     console.log(teamList);
     if (teamList.includes(draftOrder[activePick])){
         console.log('user pick');
+        //leave user to pick
     } else {
         console.log('cpu pick');
         window.setTimeout(makeCpuPick,1000); //pause 1 second, then make cpu pick;

@@ -13,6 +13,12 @@ body{
     color:white;
     margin-top:0;
 }
+#selectAll,#deselectAll{
+    margin-left:20%;
+    margin-right: 20%;
+    box-sizing: border-box;
+    width:10%;
+}
 #team-selector{
     width:80%;
     margin-left:10%;
