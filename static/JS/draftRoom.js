@@ -88,6 +88,7 @@ function startDraft(){
         document.getElementsByClassName('prospect')[i].id = i+1; //id = prospect ranking
     }
     document.getElementById('start').style.display = 'none';
+    autoPick(); //makes cpu pick or leaves user to pick for their chosen team/s.
 }
 
 
@@ -115,15 +116,51 @@ function makePick(){
     this.classList.remove('undrafted');
     this.classList.add('drafted');
     this.style.display = 'none';
+    autoPick(); //recursive function
 }
 
 function autoPick(){
+
+    console.log(draftOrder[activePick]);
+    console.log(teamList);
     if (teamList.includes(draftOrder[activePick])){
         console.log('user pick');
     } else {
         console.log('cpu pick');
+        window.setTimeout(makeCpuPick,1000); //pause 1 second, then make cpu pick;
     }
 }
+
+function makeCpuPick(){
+    //take highest ranked undrafted prospect.
+    cpuPick = document.querySelector('.undrafted')
+    console.log(cpuPick.id);
+    console.log(cpuPick.childNodes[2].innerHTML);
+    console.log(cpuPick.childNodes[3].innerHTML);
+
+    prospectName = cpuPick.childNodes[2].innerHTML;
+    prospectPos = cpuPick.childNodes[3].innerHTML;
+
+    pickName = document.createElement('div');
+    pickName.className = 'name';
+    pickName.innerHTML = prospectName;
+
+    pickPos = document.createElement('div');
+    pickPos.className = 'position';
+    pickPos.innerHTML = prospectPos;
+
+    document.getElementsByClassName('pick')[activePick].appendChild(pickName);
+    document.getElementsByClassName('pick')[activePick].appendChild(pickPos);
+
+    activePick += 1;
+    cpuPick.classList.remove('undrafted');
+    cpuPick.classList.add('drafted');
+    cpuPick.style.display = 'none';
+    autoPick(); //recursive function
+}
+
+
+
 
 //prospect filter
 document.getElementById('submitFilter').addEventListener('click',filterByPosition);
