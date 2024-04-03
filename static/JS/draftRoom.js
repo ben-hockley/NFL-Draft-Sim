@@ -40,7 +40,7 @@ for (i=0; i<draftOrder.length ; i++){
     pickNo.innerHTML = i+1;
 
     teamImage = document.createElement('img');
-    teamImage.setAttribute('src','/static/img/' + draftOrder[i] + '.webp');
+    teamImage.setAttribute('src','/static/img/NFL/' + draftOrder[i] + '.webp');
     teamImage.className = 'team';
 
     pick.appendChild(pickNo);
@@ -59,7 +59,7 @@ for (i=0;i<prospectNames.length;i++){
     prospectNo.innerHTML = i+1;
 
     collegeImage = document.createElement('img');
-    collegeImage.setAttribute('src','/static/img/' + prospectColleges[i] + '.png');
+    collegeImage.setAttribute('src','/static/img/CFB/' + prospectColleges[i] + '.png');
     collegeImage.className = 'college';
 
     prospectName = document.createElement('div');
