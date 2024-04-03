@@ -204,3 +204,19 @@ function filterByPosition(){
         }
     }
 }
+
+for (i=0;i<draftOrder.length;i++){
+    document.getElementsByClassName('team')[i].addEventListener("click",tradePick)
+}
+
+function tradePick(){
+    console.log('trade pick');
+    document.getElementById('popup').style.display = 'block';
+
+    tradingAway = this;
+
+    document.getElementById('tradePick').addEventListener("click",function(){
+        tradingAway.setAttribute('src','/static/img/NFL/' + document.getElementById('newOwner').value + '.webp');
+        document.getElementById('popup').style.display = 'none';
+    })
+}
