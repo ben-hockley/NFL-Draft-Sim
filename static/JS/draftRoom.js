@@ -62,6 +62,10 @@ for (i=0;i<prospectNames.length;i++){
     collegeImage.setAttribute('src','/static/img/CFB/' + prospectColleges[i] + '.png');
     collegeImage.className = 'college';
 
+    headshot = document.createElement('img');
+    headshot.setAttribute('src','/static/img/Players/2024/24-' + (i+1) + '.png')
+    headshot.className = 'headshot';
+
     prospectName = document.createElement('div');
     prospectName.className = 'name';
     prospectName.innerHTML = prospectNames[i] + " " + prospectColleges[i];
@@ -72,6 +76,7 @@ for (i=0;i<prospectNames.length;i++){
 
     prospect.appendChild(prospectNo);
     prospect.appendChild(collegeImage);
+    prospect.appendChild(headshot);
     prospect.appendChild(prospectName);
     prospect.appendChild(prospectPosition);
     prospect.classList.add(prospectPositions[i]); //add position class to prospect for filters.
@@ -95,11 +100,16 @@ function startDraft(){
 var activePick = 0; //zero indexed (activePick 0 is first overall pick)
 function makePick(){
     console.log(this.id);
-    console.log(this.childNodes[2].innerHTML);
     console.log(this.childNodes[3].innerHTML);
+    console.log(this.childNodes[4].innerHTML);
 
-    prospectName = this.childNodes[2].innerHTML;
-    prospectPos = this.childNodes[3].innerHTML;
+    prospectHeadshot = this.childNodes[2].getAttribute('src');
+    prospectName = this.childNodes[3].innerHTML;
+    prospectPos = this.childNodes[4].innerHTML;
+
+    pickHeadshot = document.createElement('img');
+    pickHeadshot.className = 'headshot';
+    pickHeadshot.setAttribute('src',prospectHeadshot)
 
     pickName = document.createElement('div');
     pickName.className = 'name';
@@ -109,6 +119,8 @@ function makePick(){
     pickPos.className = 'position';
     pickPos.innerHTML = prospectPos;
 
+    
+    document.getElementsByClassName('pick')[activePick].appendChild(pickHeadshot);
     document.getElementsByClassName('pick')[activePick].appendChild(pickName);
     document.getElementsByClassName('pick')[activePick].appendChild(pickPos);
 
