@@ -147,11 +147,16 @@ function makeCpuPick(){
     //take highest ranked undrafted prospect.
     cpuPick = document.querySelector('.undrafted')
     console.log(cpuPick.id);
-    console.log(cpuPick.childNodes[2].innerHTML);
     console.log(cpuPick.childNodes[3].innerHTML);
+    console.log(cpuPick.childNodes[4].innerHTML);
 
-    prospectName = cpuPick.childNodes[2].innerHTML;
-    prospectPos = cpuPick.childNodes[3].innerHTML;
+    prospectHeadshot = cpuPick.childNodes[2].getAttribute('src');
+    prospectName = cpuPick.childNodes[3].innerHTML;
+    prospectPos = cpuPick.childNodes[4].innerHTML;
+
+    headshot = document.createElement('img');
+    headshot.setAttribute('src',prospectHeadshot)
+    headshot.className = 'headshot';
 
     pickName = document.createElement('div');
     pickName.className = 'name';
@@ -161,6 +166,7 @@ function makeCpuPick(){
     pickPos.className = 'position';
     pickPos.innerHTML = prospectPos;
 
+    document.getElementsByClassName('pick')[activePick].appendChild(headshot);
     document.getElementsByClassName('pick')[activePick].appendChild(pickName);
     document.getElementsByClassName('pick')[activePick].appendChild(pickPos);
 
