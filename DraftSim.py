@@ -39,7 +39,10 @@ def getActiveTeams():
     return render_template('2024DraftRoom.html', activeTeams=activeTeams, draftOrder=draftOrder,
     prospectNames=prospectNames, prospectColleges=prospectColleges, prospectPositions=prospectPositions)
 
-
+@app.route('/2024Draft/DraftResults', methods=['POST'])
+def getDraftResults():
+    draftResults = request.form.get('draftResultsInput')
+    return render_template('DraftResults.html', draftResults=draftResults)
 
 
 if __name__ == "__main__":

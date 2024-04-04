@@ -7,7 +7,7 @@ prospectPositions = document.getElementById('prospectPositions').innerHTML;
 
 console.log(teamList);
 
-draftPicks = [];
+draftPicks = []; //array which holds all 32 draft picks in order
 
 
 // form arrays used to populate html file.
@@ -117,7 +117,9 @@ function makePick(){
     pickName.className = 'name';
     pickName.innerHTML = prospectName;
 
-    draftPicks.push(prospectName)
+    if (draftPicks.length<32){
+        draftPicks.push(prospectName)
+    }
 
     pickPos = document.createElement('div');
     pickPos.className = 'position';
@@ -167,7 +169,9 @@ function makeCpuPick(){
     pickName.className = 'name';
     pickName.innerHTML = prospectName;
 
-    draftPicks.push(prospectName);
+    if (draftPicks.length<32){
+        draftPicks.push(prospectName);
+    }
 
     pickPos = document.createElement('div');
     pickPos.className = 'position';
@@ -220,7 +224,6 @@ for (i=0;i<draftOrder.length;i++){
 function tradePick(){
     console.log('trade pick');
     document.getElementById('popup').style.display = 'block';
-
     tradingAway = this;
 
     document.getElementById('tradePick').addEventListener("click",function(){
@@ -234,20 +237,49 @@ function tradePick(){
 
 function checkForEnd(activePick){
     if (activePick == 32){
-        endOfDraft();
+        getDraftResults();
     }
-}
-
-function endOfDraft(){
-    endDraftButton = document.createElement('button');
-    endDraftButton.innerHTML = 'End Draft';
-    endDraftButton.id = 'endDraftButton';
-    endDraftButton.addEventListener("click",getDraftResults)
-
-    document.getElementById('Picks').appendChild(endDraftButton);
 }
 
 function getDraftResults(){
     alert(draftPicks);
-    //window.location.href = "/2024Draft/DraftResults";
+    newDraftOrder = [];
+    for (i=0;i<32;i++){
+        source = document.getElementsByClassName('team')[i].getAttribute('src');
+        console.log(source);
+        team = source.substring(16,source.length-5)
+        console.log(team);
+        newDraftOrder.push(team);
+        console.log(newDraftOrder);
+    }
+    //make new 2D array with [draftTeam,draftPick] x 32
+    draftResults = []
+    for (i=0;i<32;i++){
+        draftResult = [];
+        draftResult.push(newDraftOrder[i]);
+        draftResult.push(draftPicks[i]);
+        draftResults.push(draftResult);
+    }
+    console.log(draftResults);
+    //add hidden form which submits draft results to server;
+    endDraftForm = document.createElement('form');
+    endDraftForm.setAttribute('action','/2024Draft/DraftResults');
+    endDraftForm.setAttribute('method','post')
+    endDraftForm.setAttribute('id','hiddenForm')
+
+    draftResultsInput = document.createElement('input');
+    draftResultsInput.setAttribute('type','text');
+    draftResultsInput.id = 'draftResultsInput';
+    draftResultsInput.setAttribute('name','draftResultsInput');
+    draftResultsInput.value = draftResults;
+
+    endDraftButton = document.createElement('button');
+    endDraftButton.setAttribute('type','submit');
+    endDraftButton.setAttribute('id','endDraftButton');
+    endDraftButton.innerHTML = 'End Draft';
+
+    endDraftForm.appendChild(draftResultsInput);
+    endDraftForm.appendChild(endDraftButton);
+    document.getElementById('Picks').appendChild(endDraftForm);
+    
 }
