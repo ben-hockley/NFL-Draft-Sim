@@ -141,7 +141,7 @@ function makePick(){
 function autoPick(){
     console.log(draftOrder[activePick]);
     console.log(teamList);
-    if (teamList.includes(draftOrder[activePick])){
+    if (teamList.includes(document.getElementsByClassName('team')[activePick].getAttribute('src').substring(16,document.getElementsByClassName('team')[activePick].getAttribute('src').length-5))){
         console.log('user pick');
         //leave user to pick
     } else {
@@ -242,7 +242,6 @@ function checkForEnd(activePick){
 }
 
 function getDraftResults(){
-    alert(draftPicks);
     newDraftOrder = [];
     for (i=0;i<32;i++){
         source = document.getElementsByClassName('team')[i].getAttribute('src');
