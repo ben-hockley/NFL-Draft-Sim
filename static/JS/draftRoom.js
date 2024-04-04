@@ -227,6 +227,9 @@ function tradePick(){
         tradingAway.setAttribute('src','/static/img/NFL/' + document.getElementById('newOwner').value + '.webp');
         document.getElementById('popup').style.display = 'none';
     })
+    document.getElementById('cancelTrade').addEventListener("click",function(){
+        document.getElementById('popup').style.display = 'none';
+    })
 }
 
 function checkForEnd(activePick){
