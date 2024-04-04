@@ -151,8 +151,9 @@ function autoPick(){
 }
 
 function makeCpuPick(){
-    //take highest ranked undrafted prospect.
-    cpuPick = document.querySelector('.undrafted')
+    //take random prospect from top 5 available
+    randomIndex = Math.floor(Math.random()*5)
+    cpuPick = document.querySelectorAll('.undrafted')[randomIndex];
     console.log(cpuPick.id);
     console.log(cpuPick.childNodes[3].innerHTML);
     console.log(cpuPick.childNodes[4].innerHTML);
