@@ -248,6 +248,12 @@ function tradePick(){
         
         tradingAway.parentElement.className = 'pick'; //remove old team class
         tradingAway.parentElement.classList.add(document.getElementById('newOwner').value); //add new team class
+
+        if (teamList.includes(document.getElementById('newOwner').value)){
+            tradingAway.parentElement.style.backgroundColor = 'gold';
+        } else {
+            tradingAway.parentElement.style.backgroundColor = 'white';
+        };
     })
     document.getElementById('cancelTrade').addEventListener("click",function(){
         document.getElementById('popup').style.display = 'none';
