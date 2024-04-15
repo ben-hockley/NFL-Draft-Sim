@@ -144,6 +144,10 @@ function autoPick(){
     if (teamList.includes(document.getElementsByClassName('team')[activePick].getAttribute('src').substring(16,document.getElementsByClassName('team')[activePick].getAttribute('src').length-5))){
         console.log('user pick');
         //leave user to pick
+        //add event listener to undrafted prospects so user can pick.
+        for (i=0;i<(50-activePick);i++){
+            document.getElementsByClassName('undrafted')[i].addEventListener("click",makePick);
+        };
     } else {
         console.log('cpu pick');
         window.setTimeout(makeCpuPick,1000); //pause 1 second, then make cpu pick;
@@ -151,7 +155,12 @@ function autoPick(){
 }
 
 function makeCpuPick(){
-    //take random prospect from top 5 available
+    //make draft prospects unclickable (user pick impossible)
+    for (i=0;i<(50-activePick);i++){
+        document.getElementsByClassName('undrafted')[i].removeEventListener("click",makePick);
+    };
+
+    //make random pick from top 5 available
     randomIndex = Math.floor(Math.random()*5)
     cpuPick = document.querySelectorAll('.undrafted')[randomIndex];
     console.log(cpuPick.id);
