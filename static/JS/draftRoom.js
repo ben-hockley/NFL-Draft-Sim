@@ -235,11 +235,14 @@ for (i=0;i<draftOrder.length;i++){
 function tradePick(){
     console.log('trade pick');
     document.getElementById('popup').style.display = 'block';
-    tradingAway = this;
+    tradingAway = this; //this is NFL logo of owner of the draft pick (child element of '.pick')
 
     document.getElementById('tradePick').addEventListener("click",function(){
         tradingAway.setAttribute('src','/static/img/NFL/' + document.getElementById('newOwner').value + '.webp');
         document.getElementById('popup').style.display = 'none';
+        
+        tradingAway.parentElement.className = 'pick';
+        tradingAway.parentElement.classList.add(document.getElementById('newOwner').value);
     })
     document.getElementById('cancelTrade').addEventListener("click",function(){
         document.getElementById('popup').style.display = 'none';
