@@ -36,7 +36,7 @@ console.log(prospectPositions)
 for (i=0; i<draftOrder.length ; i++){
     pick = document.createElement('div');
     pick.classList.add("pick");
-    pick.classList.add(draftOrder[i]);
+    pick.classList.add(draftOrder[i]); //add class of picking team
 
     pickNo = document.createElement('div');
     pickNo.className = 'pickNo';
@@ -48,6 +48,11 @@ for (i=0; i<draftOrder.length ; i++){
 
     pick.appendChild(pickNo);
     pick.appendChild(teamImage);
+
+    //if the pick is a user pick, give green background
+    if (teamList.includes(draftOrder[i])){
+        pick.style.backgroundColor = 'gold';
+    }
     
     document.getElementById('Picks').appendChild(pick);
 }
@@ -241,8 +246,8 @@ function tradePick(){
         tradingAway.setAttribute('src','/static/img/NFL/' + document.getElementById('newOwner').value + '.webp');
         document.getElementById('popup').style.display = 'none';
         
-        tradingAway.parentElement.className = 'pick';
-        tradingAway.parentElement.classList.add(document.getElementById('newOwner').value);
+        tradingAway.parentElement.className = 'pick'; //remove old team class
+        tradingAway.parentElement.classList.add(document.getElementById('newOwner').value); //add new team class
     })
     document.getElementById('cancelTrade').addEventListener("click",function(){
         document.getElementById('popup').style.display = 'none';
