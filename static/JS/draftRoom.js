@@ -35,7 +35,8 @@ console.log(prospectPositions)
 //add draft order to Picks List
 for (i=0; i<draftOrder.length ; i++){
     pick = document.createElement('div');
-    pick.className = 'pick';
+    pick.classList.add("pick");
+    pick.classList.add(draftOrder[i]);
 
     pickNo = document.createElement('div');
     pickNo.className = 'pickNo';
@@ -290,5 +291,4 @@ function getDraftResults(){
     endDraftForm.appendChild(draftResultsInput);
     endDraftForm.appendChild(endDraftButton);
     document.getElementById('Picks').appendChild(endDraftForm);
-    
 }
